@@ -29,5 +29,3 @@ Post your comments on a private [gist](http:/gist.github.com).
 </div>
 
 Email the links to the created gists to [kelly@chaione.com](mailto://kelly@chaione.com).
-
-Good luck!
