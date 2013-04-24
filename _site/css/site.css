@@ -11,6 +11,12 @@ header {
   border-bottom: dotted 1px #eee;
 }
 
+.hero {
+  font-size: 4em;
+  font-weight: bold;
+  text-indent: -8000px;
+}
+
 .footer {
   border-top: dotted 1px #eee;
   padding-top: 1em;
@@ -45,3 +51,4 @@ pre {
 code {
   font-size: 0.8em;
 }
+
