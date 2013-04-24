@@ -11,10 +11,13 @@ header {
   border-bottom: dotted 1px #eee;
 }
 
-.hero {
-  font-size: 4em;
-  font-weight: bold;
-  text-indent: -8000px;
+header img {
+  float: right;
+}
+
+header a span {
+  font-size: 1.2em;
+  line-height: 100px;
 }
 
 .footer {
