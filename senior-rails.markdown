@@ -3,7 +3,9 @@ layout: default
 title: Senior Rails Developer Code Challenge
 ---
 
-#### Please complete the following challenges:
+# Senior Rails Developer
+
+#### Please complete the following Code & Design challenges:
 
 <div class="challenge" markdown="1">
 ## Code Challenge
