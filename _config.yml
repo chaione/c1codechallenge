@@ -1,0 +1,9 @@
+---
+
+exclude: ['Gemfile', 'Gemfile.lock', 'Rakefile', 'README.md']
+auto: true            # regenerate site when files are modified
+server: true
+server_port: 4000
+
+source: .
+destination: _site
