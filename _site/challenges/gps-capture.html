@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>GPS Capture Challenge</title>
+
+    <link rel="stylesheet" href="/css/site.css" type="text/css" media="screen" charset="utf-8">
+  </head>
+  <body>
+    <header>
+      <h1 id="header"><a href="/">ChaiOne Code Challenge</a></h1>
+    </header>
+    <section id="content">
+      <h1 id='gps_capture_challenge'>GPS Capture Challenge</h1>
+
+<p>You need to collect a <em>lot</em> of GPS data.</p>
+
+<p>The data payload will have the following fields, and they must be valid:</p>
+
+<ul>
+<li>Latitude &amp; Longitude</li>
+
+<li>Elevation</li>
+
+<li>A timestamp</li>
+
+<li>Client identification</li>
+</ul>
+
+<p>Additionally, the data payload may contain any other kind of data. It&#8217;s not clear right now what it might be, but you will need to collect and retain it for any future use of this data.</p>
+
+<p>Data points can arrive in any order.</p>
+
+<p>The client that produces this data might not be changeable in the future; once it is in the wild, you won&#8217;t have much control over it. New clients, however, might implement new versions of the data protocol.</p>
+
+<p>In addition to capturing this data, it will need to be available to other consumers. These consumers might be business analysts or systems administrators within your organization, or third-parties.</p>
+
+<p>Finally, dropping data is not acceptable. If you can&#8217;t immediately process a data payload, you&#8217;ll need a strategy for managing failures until they can be retried.</p>
+
+<h2 id='challenge'>Challenge</h2>
+
+<p>Describe in detail how you would design a system to accommodate this data.</p>
+
+<ul>
+<li>What is a broad overview of the system?</li>
+
+<li>What are the key technologies in use? Why would you choose them?</li>
+
+<li>How would you scale the system?</li>
+
+<li>How would you handle legacy clients?</li>
+
+<li>What would you do to store the data long-term?</li>
+
+<li>How would you make data available to other consumers?</li>
+</ul>
+    </section>
+
+    <section class="footer">
+  If you have any questions, please contact <a href="mailto:kelly@chaione.com">Kelly</a>.
+</section>
+
+  </body>
+</html>
