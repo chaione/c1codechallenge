@@ -1,0 +1,49 @@
+<div class="highlight"><pre><span class="k">class</span> <span class="nc">AnagramTest</span> <span class="o">&lt;</span> <span class="ss">MiniTest</span><span class="p">:</span><span class="ss">:Unit</span><span class="o">::</span><span class="no">TestCase</span>
+
+  <span class="k">def</span> <span class="nf">test_no_matches</span>
+    <span class="n">detector</span> <span class="o">=</span> <span class="no">Anagram</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s1">&#39;diaper&#39;</span><span class="p">)</span>
+    <span class="n">assert_equal</span> <span class="o">[]</span><span class="p">,</span> <span class="n">detector</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="sx">%w(hello world zombies pants)</span><span class="p">)</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nf">test_detect_simple_anagram</span>
+    <span class="n">skip</span>
+    <span class="n">detector</span> <span class="o">=</span> <span class="no">Anagram</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s1">&#39;ba&#39;</span><span class="p">)</span>
+    <span class="n">anagrams</span> <span class="o">=</span> <span class="n">detector</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="o">[</span><span class="s1">&#39;ab&#39;</span><span class="p">,</span> <span class="s1">&#39;abc&#39;</span><span class="p">,</span> <span class="s1">&#39;bac&#39;</span><span class="o">]</span><span class="p">)</span>
+    <span class="n">assert_equal</span> <span class="o">[</span><span class="s1">&#39;ab&#39;</span><span class="o">]</span><span class="p">,</span> <span class="n">anagrams</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nf">test_detect_multiple_anagrams</span>
+    <span class="n">skip</span>
+    <span class="n">detector</span> <span class="o">=</span> <span class="no">Anagram</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s1">&#39;abc&#39;</span><span class="p">)</span>
+    <span class="n">anagrams</span> <span class="o">=</span> <span class="n">detector</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="o">[</span><span class="s1">&#39;ab&#39;</span><span class="p">,</span> <span class="s1">&#39;abc&#39;</span><span class="p">,</span> <span class="s1">&#39;bac&#39;</span><span class="o">]</span><span class="p">)</span>
+    <span class="n">assert_equal</span> <span class="o">[</span><span class="s1">&#39;abc&#39;</span><span class="p">,</span> <span class="s1">&#39;bac&#39;</span><span class="o">]</span><span class="p">,</span> <span class="n">anagrams</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nf">test_does_not_confuse_different_duplicates</span>
+    <span class="n">skip</span>
+    <span class="n">detector</span> <span class="o">=</span> <span class="no">Anagram</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s1">&#39;abb&#39;</span><span class="p">)</span>
+    <span class="n">assert_equal</span> <span class="o">[]</span><span class="p">,</span> <span class="n">detector</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="o">[</span><span class="s1">&#39;baa&#39;</span><span class="o">]</span><span class="p">)</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nf">test_detect_anagram</span>
+    <span class="n">skip</span>
+    <span class="n">detector</span> <span class="o">=</span> <span class="no">Anagram</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s1">&#39;listen&#39;</span><span class="p">)</span>
+    <span class="n">anagrams</span> <span class="o">=</span> <span class="n">detector</span><span class="o">.</span><span class="n">match</span> <span class="sx">%w(enlists google inlets banana)</span>
+    <span class="n">assert_equal</span> <span class="o">[</span><span class="s1">&#39;inlets&#39;</span><span class="o">]</span><span class="p">,</span> <span class="n">anagrams</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nf">test_multiple_anagrams</span>
+    <span class="n">skip</span>
+    <span class="n">detector</span> <span class="o">=</span> <span class="no">Anagram</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s1">&#39;allergy&#39;</span><span class="p">)</span>
+    <span class="n">anagrams</span> <span class="o">=</span> <span class="n">detector</span><span class="o">.</span><span class="n">match</span> <span class="sx">%w(gallery ballerina regally clergy largely leading)</span>
+    <span class="n">assert_equal</span> <span class="o">[</span><span class="s1">&#39;gallery&#39;</span><span class="p">,</span> <span class="s1">&#39;regally&#39;</span><span class="p">,</span> <span class="s1">&#39;largely&#39;</span><span class="o">]</span><span class="p">,</span> <span class="n">anagrams</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nf">test_anagrams_are_case_insensitive</span>
+    <span class="n">skip</span>
+    <span class="n">detector</span> <span class="o">=</span> <span class="no">Anagram</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s1">&#39;Orchestra&#39;</span><span class="p">)</span>
+    <span class="n">anagrams</span> <span class="o">=</span> <span class="n">detector</span><span class="o">.</span><span class="n">match</span> <span class="sx">%w(cashregister carthorse radishes)</span>
+    <span class="n">assert_equal</span> <span class="o">[</span><span class="s1">&#39;carthorse&#39;</span><span class="o">]</span><span class="p">,</span> <span class="n">anagrams</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</pre></div>

@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>GitHub Archive Leaderboard Challenge</title>
+
+    <link rel="stylesheet" href="/css/site.css" type="text/css" media="screen" charset="utf-8">
+  </head>
+  <body>
+    <header>
+      <a href="/">
+        <img src="/images/chaione.png" width="250" alt="ChaiOne">
+        <span>ChaiONE Code Challenge</span>
+      </a>
+    </header>
+    <section id="content">
+      <h1 id='github_archive_leaderboard_challenge'>Github Archive leaderboard challenge</h1>
+
+<p><a href='http://www.githubarchive.org'>GitHub Archive</a> provides stats for projects on GitHub via a RESTful HTTP service.</p>
+
+<p>Create a command-line program that lists the most active repositories for a given time range. It should support the following interface:</p>
+
+<pre><code>gh_repo_stats [--after DATETIME] [--before DATETIME] [--event EVENT_NAME] [-n COUNT]</code></pre>
+
+<p>Example:</p>
+
+<pre><code>gh_repo_stats --after 2012-11-01T13:00:00Z --before 2012-11-02T03:12:14-03:00 --event PushEvent --count 42
+
+sakai-mirror/melete - 168 events
+runningforworldpeace/feeds - 103 events
+chapuni/llvm-project-submodule - 98 events
+chapuni/llvm-project - 98 events
+Frameset91/untitled0815 - 94 events
+josmera01/juanrueda-internation - 78 events
+artmig/artmig.github.com - 76 events
+mozilla/mozilla-central - 69 events
+bcomdlc/bcom-homepage-archive - 68 events
+sakai-mirror/ambrosia - 68 events
+sakai-mirror/test-center - 65 events
+sakai-mirror/mneme - 65 events
+klange/tales-of-darwinia - 63 events
+esc/bottlepaste - 62 events
+ehsan/mozilla-history-tools - 58 events
+all4senses/Gv - 54 events
+herry13/nuri - 51 events
+SeqAlignViz/seqalignviz.github.com - 44 events
+illcreative/Get-Home-Safe-NYC - 44 events
+incxnt/incxnt.github.com - 41 events
+daknok/Filmpje - 40 events
+ChildOfWar/MIU - 40 events
+aleontiev/Turntable.FM-Squared - 40 events
+DigiZeit/dwa - 37 events
+DigiZeit/dwa-debug - 37 events
+danielcooper/radarsite - 37 events
+navanjr/kts - 36 events
+githubtrainer/poems - 35 events
+wikimedia/mediawiki-extensions - 35 events
+DigiZeit/dwa-pro - 35 events
+gerritwm/MediaWiki - 34 events
+cloudweekhec/stack - 34 events
+andyisimprovised/goatmachine - 34 events
+GreenplumChorus/chorus - 33 events
+ros-gbp/nodelet_core-release - 33 events
+honovation/veil - 33 events
+McGill-CSB/PHYLO - 32 events
+ceph/ceph - 31 events
+aaronlbloom/dwa - 31 events
+dotCMS/dotCMS - 31 events
+RC5Group6/research-camp-5 - 30 events
+ShreyaPandita/oftest - 30 events</code></pre>
+
+<h2 id='going_further'>Going further</h2>
+
+<ul>
+<li>There are <a href='http://developer.github.com/v3/activity/events/types/'>18 published Event Types</a>. How would you manage them? What would you do if GitHub added more Event Types?</li>
+
+<li>What factors impact performance? What would you do to improve them?</li>
+
+<li>The example shows one type of output report. How would you add additional reporting formats?</li>
+
+<li>If you had to implement this using only one gem, which would it be? Why?</li>
+</ul>
+    </section>
+
+    <section class="footer">
+  If you have any questions, please contact <a href="mailto:kelly@chaione.com">Kelly</a>.
+</section>
+
+  </body>
+</html>

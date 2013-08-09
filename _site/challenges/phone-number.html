@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Phone Number Challenge</title>
+
+    <link rel="stylesheet" href="/css/site.css" type="text/css" media="screen" charset="utf-8">
+  </head>
+  <body>
+    <header>
+      <a href="/">
+        <img src="/images/chaione.png" width="250" alt="ChaiOne">
+        <span>ChaiONE Code Challenge</span>
+      </a>
+    </header>
+    <section id="content">
+      <h1 id='phone_number'>Phone Number</h1>
+
+<p>Write a program that cleans up user-entered phone numbers so that they can be sent SMS messages.</p>
+
+<p>The rules are as follows:</p>
+
+<ul>
+<li>If the phone number is less than 10 digits assume that it is bad number</li>
+
+<li>If the phone number is 10 digits assume that it is good</li>
+
+<li>If the phone number is 11 digits and the first number is 1, trim the 1 and use the first 10 digits</li>
+
+<li>If the phone number is 11 digits and the first number is not 1, then it is a bad number</li>
+
+<li>If the phone number is more than 11 digits assume that it is a bad number</li>
+</ul>
+
+<p>We&#8217;ve provided tests, now make them pass.</p>
+
+<p>Hint: Only make one test pass at a time. You can turn off tests by sending the message <code>skip</code> to it:</p>
+
+<p><code>ruby
+def test_string_conversion
+  skip
+  assert_equal 1, &quot;1&quot;.to_i
+end
+</code></p>
+
+<h2 id='tests'>Tests</h2>
+
+<p>Hint: Remove the <code>skip</code> message from the next test once the first test passes.</p>
+
+<p>When all the tests are passing, post the result to a private <a href='http://gist.github.com'>gist</a>.</p>
+
+<p>Email the link to the created gist to <a href='mailto://kelly@chaione.com'>kelly@chaione.com</a>.</p>
+<div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span> (phone-number_test.rb)</span> <a href='/challenges/code/phone-number_test.rb'>download</a></figcaption>
+ <div class='highlight'><table><tr><td class='gutter'><pre class='line-numbers'><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+<span class='line-number'>46</span>
+<span class='line-number'>47</span>
+<span class='line-number'>48</span>
+<span class='line-number'>49</span>
+<span class='line-number'>50</span>
+<span class='line-number'>51</span>
+<span class='line-number'>52</span>
+<span class='line-number'>53</span>
+</pre></td><td class='code'><pre><code class='rb'><span class='line'><span class='nb'>require</span> <span class='s1'>&#39;minitest/autorun&#39;</span>
+</span><span class='line'><span class='n'>require_relative</span> <span class='s1'>&#39;phone&#39;</span>
+</span><span class='line'>
+</span><span class='line'><span class='k'>class</span> <span class='nc'>PhoneTest</span> <span class='o'>&lt;</span> <span class='ss'>MiniTest</span><span class='p'>:</span><span class='ss'>:Unit</span><span class='o'>::</span><span class='no'>TestCase</span>
+</span><span class='line'>
+</span><span class='line'>  <span class='k'>def</span> <span class='nf'>test_cleans_number</span>
+</span><span class='line'>    <span class='n'>number</span> <span class='o'>=</span> <span class='no'>Phone</span><span class='o'>.</span><span class='n'>new</span><span class='p'>(</span><span class='s2'>&quot;(123) 456-7890&quot;</span><span class='p'>)</span><span class='o'>.</span><span class='n'>number</span>
+</span><span class='line'>    <span class='n'>assert_equal</span> <span class='s2'>&quot;1234567890&quot;</span><span class='p'>,</span> <span class='n'>number</span>
+</span><span class='line'>  <span class='k'>end</span>
+</span><span class='line'>
+</span><span class='line'>  <span class='k'>def</span> <span class='nf'>test_cleans_number_with_dots</span>
+</span><span class='line'>    <span class='n'>skip</span>
+</span><span class='line'>    <span class='n'>number</span> <span class='o'>=</span> <span class='no'>Phone</span><span class='o'>.</span><span class='n'>new</span><span class='p'>(</span><span class='s2'>&quot;123.456.7890&quot;</span><span class='p'>)</span><span class='o'>.</span><span class='n'>number</span>
+</span><span class='line'>    <span class='n'>assert_equal</span> <span class='s2'>&quot;1234567890&quot;</span><span class='p'>,</span> <span class='n'>number</span>
+</span><span class='line'>  <span class='k'>end</span>
+</span><span class='line'>
+</span><span class='line'>  <span class='k'>def</span> <span class='nf'>test_valid_when_11_digits_and_first_is_1</span>
+</span><span class='line'>    <span class='n'>skip</span>
+</span><span class='line'>    <span class='n'>number</span> <span class='o'>=</span> <span class='no'>Phone</span><span class='o'>.</span><span class='n'>new</span><span class='p'>(</span><span class='s2'>&quot;11234567890&quot;</span><span class='p'>)</span><span class='o'>.</span><span class='n'>number</span>
+</span><span class='line'>    <span class='n'>assert_equal</span> <span class='s2'>&quot;1234567890&quot;</span><span class='p'>,</span> <span class='n'>number</span>
+</span><span class='line'>  <span class='k'>end</span>
+</span><span class='line'>
+</span><span class='line'>  <span class='k'>def</span> <span class='nf'>test_invalid_when_11_digits</span>
+</span><span class='line'>    <span class='n'>skip</span>
+</span><span class='line'>    <span class='n'>number</span> <span class='o'>=</span> <span class='no'>Phone</span><span class='o'>.</span><span class='n'>new</span><span class='p'>(</span><span class='s2'>&quot;21234567890&quot;</span><span class='p'>)</span><span class='o'>.</span><span class='n'>number</span>
+</span><span class='line'>    <span class='n'>assert_equal</span> <span class='s2'>&quot;0000000000&quot;</span><span class='p'>,</span> <span class='n'>number</span>
+</span><span class='line'>  <span class='k'>end</span>
+</span><span class='line'>
+</span><span class='line'>  <span class='k'>def</span> <span class='nf'>test_invalid_when_9_digits</span>
+</span><span class='line'>    <span class='n'>skip</span>
+</span><span class='line'>    <span class='n'>number</span> <span class='o'>=</span> <span class='no'>Phone</span><span class='o'>.</span><span class='n'>new</span><span class='p'>(</span><span class='s2'>&quot;123456789&quot;</span><span class='p'>)</span><span class='o'>.</span><span class='n'>number</span>
+</span><span class='line'>    <span class='n'>assert_equal</span> <span class='s2'>&quot;0000000000&quot;</span><span class='p'>,</span> <span class='n'>number</span>
+</span><span class='line'>  <span class='k'>end</span>
+</span><span class='line'>
+</span><span class='line'>  <span class='k'>def</span> <span class='nf'>test_area_code</span>
+</span><span class='line'>    <span class='n'>skip</span>
+</span><span class='line'>    <span class='n'>number</span> <span class='o'>=</span> <span class='no'>Phone</span><span class='o'>.</span><span class='n'>new</span><span class='p'>(</span><span class='s2'>&quot;1234567890&quot;</span><span class='p'>)</span>
+</span><span class='line'>    <span class='n'>assert_equal</span> <span class='s2'>&quot;123&quot;</span><span class='p'>,</span> <span class='n'>number</span><span class='o'>.</span><span class='n'>area_code</span>
+</span><span class='line'>  <span class='k'>end</span>
+</span><span class='line'>
+</span><span class='line'>  <span class='k'>def</span> <span class='nf'>test_pretty_print</span>
+</span><span class='line'>    <span class='n'>skip</span>
+</span><span class='line'>    <span class='n'>number</span> <span class='o'>=</span> <span class='no'>Phone</span><span class='o'>.</span><span class='n'>new</span><span class='p'>(</span><span class='s2'>&quot;1234567890&quot;</span><span class='p'>)</span>
+</span><span class='line'>    <span class='n'>assert_equal</span> <span class='s2'>&quot;(123) 456-7890&quot;</span><span class='p'>,</span> <span class='n'>number</span><span class='o'>.</span><span class='n'>to_s</span>
+</span><span class='line'>  <span class='k'>end</span>
+</span><span class='line'>
+</span><span class='line'>  <span class='k'>def</span> <span class='nf'>test_pretty_print_with_full_us_phone_number</span>
+</span><span class='line'>    <span class='n'>skip</span>
+</span><span class='line'>    <span class='n'>number</span> <span class='o'>=</span> <span class='no'>Phone</span><span class='o'>.</span><span class='n'>new</span><span class='p'>(</span><span class='s2'>&quot;11234567890&quot;</span><span class='p'>)</span>
+</span><span class='line'>    <span class='n'>assert_equal</span> <span class='s2'>&quot;(123) 456-7890&quot;</span><span class='p'>,</span> <span class='n'>number</span><span class='o'>.</span><span class='n'>to_s</span>
+</span><span class='line'>  <span class='k'>end</span>
+</span><span class='line'>
+</span><span class='line'><span class='k'>end</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
+<h2 id='source'>Source</h2>
+
+<p><a href='http://tutorials.jumpstartlab.com/projects/eventmanager.html'>Event Manager by JumpstartLab</a></p>
+    </section>
+
+    <section class="footer">
+  If you have any questions, please contact <a href="mailto:kelly@chaione.com">Kelly</a>.
+</section>
+
+  </body>
+</html>

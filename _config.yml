@@ -7,3 +7,4 @@ server_port: 4000
 
 source: .
 destination: _site
+code_dir: challenges/code

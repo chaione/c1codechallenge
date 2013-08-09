@@ -1,0 +1,54 @@
+<div class="highlight"><pre><span class="nb">require</span> <span class="s1">&#39;minitest/autorun&#39;</span>
+<span class="n">require_relative</span> <span class="s1">&#39;phone&#39;</span>
+
+<span class="k">class</span> <span class="nc">PhoneTest</span> <span class="o">&lt;</span> <span class="ss">MiniTest</span><span class="p">:</span><span class="ss">:Unit</span><span class="o">::</span><span class="no">TestCase</span>
+
+  <span class="k">def</span> <span class="nf">test_cleans_number</span>
+    <span class="n">number</span> <span class="o">=</span> <span class="no">Phone</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s2">&quot;(123) 456-7890&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">number</span>
+    <span class="n">assert_equal</span> <span class="s2">&quot;1234567890&quot;</span><span class="p">,</span> <span class="n">number</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nf">test_cleans_number_with_dots</span>
+    <span class="n">skip</span>
+    <span class="n">number</span> <span class="o">=</span> <span class="no">Phone</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s2">&quot;123.456.7890&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">number</span>
+    <span class="n">assert_equal</span> <span class="s2">&quot;1234567890&quot;</span><span class="p">,</span> <span class="n">number</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nf">test_valid_when_11_digits_and_first_is_1</span>
+    <span class="n">skip</span>
+    <span class="n">number</span> <span class="o">=</span> <span class="no">Phone</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s2">&quot;11234567890&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">number</span>
+    <span class="n">assert_equal</span> <span class="s2">&quot;1234567890&quot;</span><span class="p">,</span> <span class="n">number</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nf">test_invalid_when_11_digits</span>
+    <span class="n">skip</span>
+    <span class="n">number</span> <span class="o">=</span> <span class="no">Phone</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s2">&quot;21234567890&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">number</span>
+    <span class="n">assert_equal</span> <span class="s2">&quot;0000000000&quot;</span><span class="p">,</span> <span class="n">number</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nf">test_invalid_when_9_digits</span>
+    <span class="n">skip</span>
+    <span class="n">number</span> <span class="o">=</span> <span class="no">Phone</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s2">&quot;123456789&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">number</span>
+    <span class="n">assert_equal</span> <span class="s2">&quot;0000000000&quot;</span><span class="p">,</span> <span class="n">number</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nf">test_area_code</span>
+    <span class="n">skip</span>
+    <span class="n">number</span> <span class="o">=</span> <span class="no">Phone</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s2">&quot;1234567890&quot;</span><span class="p">)</span>
+    <span class="n">assert_equal</span> <span class="s2">&quot;123&quot;</span><span class="p">,</span> <span class="n">number</span><span class="o">.</span><span class="n">area_code</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nf">test_pretty_print</span>
+    <span class="n">skip</span>
+    <span class="n">number</span> <span class="o">=</span> <span class="no">Phone</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s2">&quot;1234567890&quot;</span><span class="p">)</span>
+    <span class="n">assert_equal</span> <span class="s2">&quot;(123) 456-7890&quot;</span><span class="p">,</span> <span class="n">number</span><span class="o">.</span><span class="n">to_s</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nf">test_pretty_print_with_full_us_phone_number</span>
+    <span class="n">skip</span>
+    <span class="n">number</span> <span class="o">=</span> <span class="no">Phone</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s2">&quot;11234567890&quot;</span><span class="p">)</span>
+    <span class="n">assert_equal</span> <span class="s2">&quot;(123) 456-7890&quot;</span><span class="p">,</span> <span class="n">number</span><span class="o">.</span><span class="n">to_s</span>
+  <span class="k">end</span>
+
+<span class="k">end</span>
+</pre></div>
