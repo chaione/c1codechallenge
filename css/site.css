@@ -49,6 +49,8 @@ pre {
   background-color: #333;
   color: #aaa;
   padding: 1em;
+  white-space: pre;
+  word-wrap: break-word;
 }
 
 code {
