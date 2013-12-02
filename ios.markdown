@@ -10,4 +10,4 @@ title: iOS Developer Code Challenge
 - [App.net Client](/challenges/ios-appnet-client.html)
 </div>
 
-Email the links or files [kelly@chaione.com](mailto://kelly@chaione.com).
+Email the links or files to [humanresources@chaione.com](mailto://humanresources@chaione.com).
