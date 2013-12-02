@@ -30,4 +30,4 @@ to accommodate the following requirements:
 Post your comments on a private [gist](http:/gist.github.com).
 </div>
 
-Email the links to the created gists to [kelly@chaione.com](mailto://kelly@chaione.com).
+Email the links to the created solutions to [humanresources@chaione.com](mailto://humanresources@chaione.com).

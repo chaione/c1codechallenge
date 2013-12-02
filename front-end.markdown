@@ -16,4 +16,4 @@ Using [JSFiddle](http://jsfiddle.net/), [JSBin](http://jsbin.com/), or a related
 - [Layout](/challenges/layout.html)
 </div>
 
-Email the links to the created solutions to [kelly@chaione.com](mailto://kelly@chaione.com).
+Email the links to the created solutions to [humanresources@chaione.com](mailto://humanresources@chaione.com).
